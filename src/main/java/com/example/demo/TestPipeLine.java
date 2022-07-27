@@ -21,7 +21,9 @@ public class TestPipeLine {
             Consumer<Pipeline> function = p -> p.mset("k1", "v1", "k2", "v2");
             function.accept(pipelined);
 
-            pipelined.sync();
+            // pipelined.sync();
+            // pipelined.close(); close 等同 clear
+            pipelined.clear(); // clear 已包括 sync()
 
             System.out.println(jedis.get("k1"));
             System.out.println(jedis.get("k2"));
