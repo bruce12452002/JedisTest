@@ -17,7 +17,7 @@ public class SubThread extends Thread {
     @Override
     public void run() {
         // 注意：subscribe是一個阻塞的方法，在取消訂閱該頻道前，thread會一直阻塞在這，無法執行後面的 Code
-        System.out.println(String.format("subscribe redis, channel %s, thread will be blocked", channel));
+        System.out.format("subscribe redis, channel %s, thread will be blocked", channel);
 
         Jedis jedis = null;
 
